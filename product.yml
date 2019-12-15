@@ -1,0 +1,43 @@
+#服务端口相关配置
+server:
+  port: 8761
+  servlet:
+    context-path: /product
+    jsp:
+      init-parameters:
+        development: true
+  max-http-header-size: 20480
+#eureka相关配置
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8760/eureka
+#spring相关配置
+spring:
+  mvc:
+    view:
+      prefix: /
+      suffix: .jsp
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/app?characterEncoding=UTF-8
+    username: root
+    password: root
+  servlet:
+    multipart:
+      max-file-size: 40MB
+      max-request-size: 20MB
+  redis:
+    host: 49.233.185.109
+    port: 7000
+    database: 0
+  application:
+      name: product
+#mybatis相关配置
+mybatis:
+  type-aliases-package: com.lyj.entity
+  mapper-locations: classpath:com/lyj/mapper/*Mapper.xml
+logging:
+  level:
+    com.lyj.dao: debug
